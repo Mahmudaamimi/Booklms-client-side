@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { IoLibrary } from "react-icons/io5";
 import { Link, NavLink } from 'react-router-dom';
 import './navbar.css'
+import { AuthContext } from '../Provider/Authprovider';
 
 const Navbar = () => {
+    const {user,logOut} = useContext(AuthContext)
     const navlink = <>
         <NavLink className='nav' to={'/'}>Home</NavLink> 
         <NavLink className='nav' to={'/addbook'}>Add book</NavLink> 
@@ -30,7 +32,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
+            {
+                    user?.email ?
+                        <div className='flex items-center gap-2'>
+                            <img className='rounded-full w-8' src={user.photoURL} alt="" />
+                            <span>{user.displayName}</span>                        
+                            <Link>
+                            <button onClick={logOut} className="btn btn-neutral">Logout</button>
+                            </Link>
+                            
+                        </div>
+
+                        :
+                        <Link to='/login'>
+                            <button className="btn btn-neutral">Login</button>
+                        </Link>
+                }
             </div>
         </div>
     );
