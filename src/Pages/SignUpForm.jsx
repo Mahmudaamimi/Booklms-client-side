@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/Authprovider';
 import { updateProfile } from 'firebase/auth';
+import { toast } from 'react-toastify';
 
 const SignUpForm = () => {
     const {createUser} = useContext(AuthContext)
@@ -23,6 +24,7 @@ const SignUpForm = () => {
     })
     .catch((error) => {
         console.error(error)
+        toast(error)
       });
 };
 
