@@ -24,7 +24,7 @@ const AllBooks = () => {
       <ul className='grid p-5 md:grid-cols-4 gap-5 my-5'>
         {books.map((book) => (
            <div key={book._id} className="card card-compact bg-base-100 shadow-xl">
-           <figure><img src={book.imageUrl} alt="Shoes" /></figure>
+           <figure><img className='h-48 w-full' src={book.imageUrl} alt="Shoes" /></figure>
            <div className="card-body">
              <h2 className="card-title">{book.name}</h2>
              <p className="card-title">{book.quantity}</p>

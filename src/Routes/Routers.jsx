@@ -7,7 +7,9 @@ import Login from "../Pages/Login";
 import SignUpForm from "../Pages/SignUpForm";
 import AllBooks from "../Pages/AllBooks";
 import Details from "../Pages/Details";
-
+import Privetroute from "./Privetroute";
+ 
+ 
 const router = createBrowserRouter([
     {
         path: "/",
@@ -31,7 +33,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addbook",
-                element: <AddBook></AddBook>,
+                element: <Privetroute><AddBook></AddBook></Privetroute>,
 
             },
             {
@@ -42,7 +44,7 @@ const router = createBrowserRouter([
             {
                 path:"/bookdetails/:id",
                 loader:({params})=> fetch(`http://localhost:5000/addbooks/${params.id}`),
-                element:<Details></Details>,
+                element:<Privetroute><Details></Details></Privetroute>,
             },
         ]
 
