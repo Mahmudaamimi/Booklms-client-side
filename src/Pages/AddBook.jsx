@@ -1,4 +1,4 @@
-import React from 'react';
+ 
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -7,7 +7,7 @@ const AddBook = () => {
   const { register, handleSubmit, errors } = useForm();
   const navigate = useNavigate()
   const onSubmit = (data) => {
-    fetch('http://localhost:5000/addbooks',{
+    fetch('https://library-management-server-ruddy.vercel.app/addbooks',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

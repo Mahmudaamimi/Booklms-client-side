@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/bookdetails/:id",
-                loader:({params})=> fetch(`http://localhost:5000/addbooks/${params.id}`),
+                loader:({params})=> fetch(`https://library-management-server-ruddy.vercel.app/addbooks/${params.id}`),
                 element:<Privetroute><Details></Details></Privetroute>,
             },
         ]
